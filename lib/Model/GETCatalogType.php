@@ -67,7 +67,8 @@ class GETCatalogType implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'products' => '\Swagger\Client\Model\GETProductType[]',
-        'success' => 'bool'
+        'success' => 'bool',
+        'nextPage' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -81,7 +82,8 @@ class GETCatalogType implements ArrayAccess
      */
     protected static $attributeMap = [
         'products' => 'products',
-        'success' => 'success'
+        'success' => 'success',
+        'nextPage' => 'nextPage'
     ];
 
 
@@ -91,7 +93,8 @@ class GETCatalogType implements ArrayAccess
      */
     protected static $setters = [
         'products' => 'setProducts',
-        'success' => 'setSuccess'
+        'success' => 'setSuccess',
+        'nextPage' => 'setNextPage'
     ];
 
 
@@ -101,7 +104,8 @@ class GETCatalogType implements ArrayAccess
      */
     protected static $getters = [
         'products' => 'getProducts',
-        'success' => 'getSuccess'
+        'success' => 'getSuccess',
+        'nextPage' => 'getNextPage'
     ];
 
     public static function attributeMap()
@@ -137,6 +141,7 @@ class GETCatalogType implements ArrayAccess
     {
         $this->container['products'] = isset($data['products']) ? $data['products'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['nextPage'] = isset($data['nextPage']) ? $data['nextPage'] : null;
     }
 
     /**
@@ -201,6 +206,33 @@ class GETCatalogType implements ArrayAccess
     {
         $this->container['success'] = $success;
 
+        return $this;
+    }
+    
+    /**
+     * Gets nextPage
+     * @return string
+     */
+    public function getNextPage()
+    {
+        $int_page = null;
+        if($this->container['nextPage']) {
+            parse_str(parse_url($this->container['nextPage'], PHP_URL_QUERY), $newQueryArray);
+            $int_page = $newQueryArray['page'];
+        }
+        
+        return $int_page;
+    }
+    
+    /**
+     * Sets nextPage
+     * @param string $nextPage
+     * @return \Swagger\Client\Model\GETCatalogType
+     */
+    public function setNextPage($nextPage)
+    {
+        $this->container['nextPage'] = $nextPage;
+        
         return $this;
     }
     /**

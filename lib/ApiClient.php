@@ -186,6 +186,11 @@ class ApiClient
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
         }
+        
+        // get set page size through config
+        if ($this->config->getPageSize() != 10) {
+            $queryParams['pageSize'] = $this->config->getPageSize();
+        }
 
         if (!empty($queryParams)) {
             $url = ($url . '?' . http_build_query($queryParams));

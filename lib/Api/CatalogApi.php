@@ -106,12 +106,13 @@ class CatalogApi
      *
      * Get product catalog
      *
+     * @param int $page Set the page to return
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return \Swagger\Client\Model\GETCatalogType
      */
-    public function gETCatalog()
+    public function gETCatalog($page = null)
     {
-        list($response) = $this->gETCatalogWithHttpInfo();
+        list($response) = $this->gETCatalogWithHttpInfo($page);
         return $response;
     }
 
@@ -120,10 +121,11 @@ class CatalogApi
      *
      * Get product catalog
      *
+     * @param int $page Set the page to return
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @return array of \Swagger\Client\Model\GETCatalogType, HTTP status code, HTTP response headers (array of strings)
      */
-    public function gETCatalogWithHttpInfo()
+    public function gETCatalogWithHttpInfo($page = null)
     {
         // parse inputs
         $resourcePath = "/catalog/products";
@@ -131,6 +133,10 @@ class CatalogApi
         $queryParams = [];
         $headerParams = [];
         $formParams = [];
+        
+        if( $page )
+            $queryParams['page'] = $page;
+        
         $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
         if (!is_null($_header_accept)) {
             $headerParams['Accept'] = $_header_accept;
@@ -158,7 +164,6 @@ class CatalogApi
                 '\Swagger\Client\Model\GETCatalogType',
                 '/catalog/products'
             );
-
             return [$this->apiClient->getSerializer()->deserialize($response, '\Swagger\Client\Model\GETCatalogType', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {

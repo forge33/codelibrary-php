@@ -146,6 +146,13 @@ class Configuration
      * @var boolean True if the certificate should be validated, false otherwise.
      */
     protected $sslVerification = true;
+    
+    /**
+     * Set the pageSize query parameter for the maximum number of rows to return in a response. 
+     * 
+     * The maximum is 40; larger values are treated as 40. If this value is empty or invalid, pageSize typically defaults to 10.
+     */
+    protected $pageSize = 10;
 
     /**
      * Constructor
@@ -509,6 +516,28 @@ class Configuration
     public static function setDefaultConfiguration(Configuration $config)
     {
         self::$defaultConfiguration = $config;
+    }
+    
+    /**
+     * Gets the set pageSize
+     * 
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->pageSize;
+    }
+    
+    /**
+     * Set the pageSize query parameter for the maximum number of rows to return in a response.
+     * The maximum is 40; larger values are treated as 40. If this value is empty or invalid, pageSize typically defaults to 10.
+     * 
+     * @param int $size the size of the page to be returned     *
+     * @return void
+     */
+    public function setPageSize($size)
+    {
+        $this->pageSize = $size;
     }
 
     /**

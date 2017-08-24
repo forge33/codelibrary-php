@@ -106,7 +106,8 @@ class GETProductRatePlanChargeType implements ArrayAccess
         'up_to_periods_type' => 'string',
         'usage_record_rating_option' => 'string',
         'use_discount_specific_accounting_code' => 'bool',
-        'use_tenant_default_for_price_change' => 'bool'
+        'use_tenant_default_for_price_change' => 'bool',
+        'KF_Sort__c' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -159,7 +160,8 @@ class GETProductRatePlanChargeType implements ArrayAccess
         'up_to_periods_type' => 'upToPeriodsType',
         'usage_record_rating_option' => 'usageRecordRatingOption',
         'use_discount_specific_accounting_code' => 'useDiscountSpecificAccountingCode',
-        'use_tenant_default_for_price_change' => 'useTenantDefaultForPriceChange'
+        'use_tenant_default_for_price_change' => 'useTenantDefaultForPriceChange',
+        'KF_Sort__c' => 'KF_Sort__c'
     ];
 
 
@@ -208,7 +210,8 @@ class GETProductRatePlanChargeType implements ArrayAccess
         'up_to_periods_type' => 'setUpToPeriodsType',
         'usage_record_rating_option' => 'setUsageRecordRatingOption',
         'use_discount_specific_accounting_code' => 'setUseDiscountSpecificAccountingCode',
-        'use_tenant_default_for_price_change' => 'setUseTenantDefaultForPriceChange'
+        'use_tenant_default_for_price_change' => 'setUseTenantDefaultForPriceChange',
+        'KF_Sort__c' => 'setKFSort'
     ];
 
 
@@ -257,7 +260,8 @@ class GETProductRatePlanChargeType implements ArrayAccess
         'up_to_periods_type' => 'getUpToPeriodsType',
         'usage_record_rating_option' => 'getUsageRecordRatingOption',
         'use_discount_specific_accounting_code' => 'getUseDiscountSpecificAccountingCode',
-        'use_tenant_default_for_price_change' => 'getUseTenantDefaultForPriceChange'
+        'use_tenant_default_for_price_change' => 'getUseTenantDefaultForPriceChange',
+        'KF_Sort__c' => 'getKFSort'
     ];
 
     public static function attributeMap()
@@ -332,6 +336,8 @@ class GETProductRatePlanChargeType implements ArrayAccess
         $this->container['usage_record_rating_option'] = isset($data['usage_record_rating_option']) ? $data['usage_record_rating_option'] : null;
         $this->container['use_discount_specific_accounting_code'] = isset($data['use_discount_specific_accounting_code']) ? $data['use_discount_specific_accounting_code'] : null;
         $this->container['use_tenant_default_for_price_change'] = isset($data['use_tenant_default_for_price_change']) ? $data['use_tenant_default_for_price_change'] : null;
+        $this->container['KF_Sort__c'] = isset($data['KF_Sort__c']) ? $data['KF_Sort__c'] : null;
+        
     }
 
     /**
@@ -1216,6 +1222,13 @@ class GETProductRatePlanChargeType implements ArrayAccess
         $this->container['use_tenant_default_for_price_change'] = $use_tenant_default_for_price_change;
 
         return $this;
+    }
+    
+    public function setKFSort( $sort ) {
+        $this->container['KF_Sort__c'] = $sort;
+    }
+    public function getKFSort() {
+        return $this->container['KF_Sort__c'];
     }
     /**
      * Returns true if offset exists. False otherwise.

@@ -104,7 +104,7 @@ class GETSubscriptionRatePlanChargesType implements ArrayAccess
         'product_rate_plan_charge_id' => 'string',
         'quantity' => 'string',
         'rating_group' => 'string',
-        'segment' => '\DateTime',
+        'segment' => 'int',
         'smoothing_model' => 'string',
         'specific_billing_period' => 'int',
         'specific_end_date' => '\DateTime',
